@@ -35,7 +35,7 @@ int main()
             cout<< "\nDivision is not allowed for zero\n";
         break;
     default :
-        cout << "\n" << "\nInvalid Operation\n";
+        break;
     }
 }
 
