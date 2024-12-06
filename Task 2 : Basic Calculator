@@ -1,0 +1,53 @@
+#include<iostream>
+using namespace std;
+int main()
+{
+    long long Number1,Number2;
+    char Operation;
+    cout << "Enter the operation : ";
+    cin >> Operation;
+    switch(Operation)
+    {
+    case '+' :
+        //Taking Input two numbers
+        cout<< "\nEnter the first number : ";
+        cin >> Number1;
+        cout << "\nEnter the second number : ";
+        cin >> Number2;
+        //Generation the Summation of two numbers
+        cout << "\n" << Number1 + Number2 << "\n";
+        break;
+    case '-' :
+        //Taking Input two numbers
+        cout << "\nEnter the first number : ";
+        cin >> Number1;
+        cout << "\nEnter the second number : ";
+        cin >> Number2;
+        //Generation the Subtraction of two numbers
+        cout << "\n" << Number1 - Number2 << "\n";
+        break;
+    case '*' :
+        //Taking Input two numbers
+        cout << "\nEnter the first number : ";
+        cin >> Number1;
+        cout << "\nEnter the second number : ";
+        cin >> Number2;
+        //Generation the Multiplication of two numbers
+        cout << "\n" << Number1 * Number2 << "\n";
+        break;
+    case '/' :
+        //Taking Input two numbers
+        cout << "\nEnter the first number : ";
+        cin >> Number1;
+        cout << "\nEnter the second number : ";
+        cin >> Number2;
+        if (Number2 != 0)
+            //Generation the Division of two numbers
+            cout << "\n" << Number1 / Number2 << "\n";
+        else
+            cout<< "\nDivision is not allowed for zero\n";
+        break;
+    default :
+        cout << "\n" << "\nInvalid Operation\n";
+    }
+}
