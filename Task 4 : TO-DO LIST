@@ -1,0 +1,130 @@
+#include<iostream>
+#include<vector>
+#include<string>
+using namespace std;
+
+struct Task{                             //Declaring a Structure
+    string description;
+    bool completed =false;
+};
+void AddTask(vector<Task>&TaskList);
+void ViewTask(vector<Task>&TaskList);
+void TaskCompleted(vector<Task>&TaskList);
+void RemoveTask(vector<Task>&TaskList);
+void DisplayMenuList();
+
+vector<Task>TaskList;                   //Declaring a vector
+
+int main()
+{
+    // Declaring a variable for taking input the choice from user
+    int choice;
+
+    do{
+        DisplayMenuList();                        //calling DisplayMenuList() function
+
+        cin>>choice;                              // Taking input the choice from user
+
+        switch(choice){
+
+            case 1:
+                AddTask(TaskList);                //calling AddTask() function
+                break;
+
+            case 2:
+                ViewTask(TaskList);               //calling ViewTask() function
+                break;
+
+            case 3:
+                TaskCompleted(TaskList);          //calling TaskCompleted() function
+                break;
+
+            case 4:
+                RemoveTask(TaskList);             //calling RemoveTask() function
+                break;
+
+            case 5:
+                exit(0);
+
+            default :
+                cout<<"Invalid choice !\n";
+        }
+    }while(choice!=5);
+    return 0;
+}
+
+// Function for adding tasks
+
+void AddTask(vector<Task>&TaskList)
+{
+    string description;
+    cout<<"\nEnter task description : ";
+    cin.ignore();
+    getline(cin,description);
+    Task element;
+    element.description=description;
+    TaskList.push_back(element);
+}
+
+// Function for viewing tasks
+
+void ViewTask(vector<Task>&TaskList)
+{
+    if(TaskList.empty())
+    {
+        cout<<"\nNo Task in the List\n\n";
+        return;
+    }
+    cout<<"\nTo-Do List :\n\n";
+    for(long long i=0;i<TaskList.size();i++)
+    {
+        cout<<i+1<<". ["<<(TaskList[i].completed?"Completed":"Pending")<<"] "<<TaskList[i].description<<"\n";
+    }
+}
+
+// Function for complete the task as completed
+
+void TaskCompleted(vector<Task>&TaskList)
+{
+    if(TaskList.empty()) return;
+    int Task_index;
+    cout<<"\nEnter the task number to mark as completed : ";
+    cin>>Task_index;
+    if(Task_index<1 || Task_index>TaskList.size())
+    {
+        cout<<"\nSorry! Invalid Task Number.\n\n";
+        return;
+    }
+    TaskList[Task_index-1].completed=true;
+
+}
+
+// Function for removing tasks
+
+void RemoveTask(vector<Task>&TaskList)
+{
+    if(TaskList.empty()) return;
+    int Task_index;
+    cout<<"\nEnter the task number to remove : ";
+    cin>>Task_index;
+    if(Task_index<1 || Task_index>TaskList.size())
+    {
+        cout<<"\nSorry! Invalid Task Number.\n";
+        return;
+    }
+    TaskList.erase(TaskList.begin()+Task_index-1);
+}
+
+// Function for displaying tasks
+
+void DisplayMenuList()
+{
+    cout<<"\nTo-Do List Manager\n\n";
+    cout<<"1. Add Task\n";
+    cout<<"2. View Tasks\n";
+    cout<<"3. Mark Task as Completed\n";
+    cout<<"4. Remove Task\n";
+    cout<<"5. Exit\n";
+    cout<<"\nEnter your choice : ";
+}
+
