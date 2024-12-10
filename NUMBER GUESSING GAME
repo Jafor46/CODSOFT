@@ -1,0 +1,37 @@
+#include<iostream>
+#include<stdlib.h> // this header file describe the functionality of srand() and rand()
+#include<ctime>    // this header file describe the functionality of time()
+using namespace std;
+int main()
+{
+    long long Guess_Number,Starting_Range,Ending_Range;
+    cout<<"Enter the Starting Range : ";
+    cin>>Starting_Range;
+    cout<<"\nEnter the Ending Range : ";
+    cin>>Ending_Range;
+    if(Starting_Range >= Ending_Range){
+        cout<<"\nRange is Invalid\n";
+        return 0;
+    }
+    srand(time(0));
+    long long Random_Number= Starting_Range +(rand() % Ending_Range);
+    while(true)
+    {
+            cout<<"\nEnter the Guess Number from user : ";
+            cin>>Guess_Number;
+            // Checking the guess number with the random number
+            if(Guess_Number<Random_Number){
+                cout<<"\nThe Guess Number is too Low.\n";
+            }
+            else if(Guess_Number>Random_Number){
+                cout<<"\nThe Guess Number is too High.\n";
+            }
+            else
+            {
+                cout<<"\nCongratulation.Your Guess Number is matched with the Random Number.\n";
+                break;
+            }
+    }
+    return 0;
+
+}
