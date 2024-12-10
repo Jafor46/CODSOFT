@@ -1,0 +1,41 @@
+#include<iostream>
+using namespace std;
+int main()
+{
+    long long Number1,Number2;
+    //Taking First Input number
+    cout<< "Enter the first number : ";
+    cin >> Number1;
+    //Selecting Operation
+    char Operation;
+    cout << "\nEnter the operation : ";
+    cin >> Operation;
+    //Taking Second Input number
+    cout << "\nEnter the second number : ";
+    cin >> Number2;
+
+    switch(Operation)
+    {
+    case '+' :
+        cout << "\n" << Number1 + Number2 << "\n";
+        break;
+    case '-' :
+        //Generation the Subtraction of two numbers
+        cout << "\n" << Number1 - Number2 << "\n";
+        break;
+    case '*' :
+        //Generation the Multiplication of two numbers
+        cout << "\n" << Number1 * Number2 << "\n";
+        break;
+    case '/' :
+        if (Number2 != 0)
+            //Generation the Division of two numbers
+            cout << "\n" << Number1 / Number2 << "\n";
+        else
+            cout<< "\nDivision is not allowed for zero\n";
+        break;
+    default :
+        cout << "\n" << "\nInvalid Operation\n";
+    }
+}
+
